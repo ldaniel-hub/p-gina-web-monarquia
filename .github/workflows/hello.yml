@@ -52,7 +52,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
-  DOCKER:
+  DOCKER_Login:
+    needs: Mensagem
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
@@ -60,3 +61,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v7.4.0
+        with:
+          file: dockerfile
+          push: true
+          tags: lucasr32/img_monarquia:1.0
