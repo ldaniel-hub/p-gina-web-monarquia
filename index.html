@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Império do Brasil | A Era Monárquica (1822–1889)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --green-imperial: #004225;
+            --green-dark: #002b18;
+            --green-light: #0d5c37;
+            --gold-primary: #D4AF37;
+            --gold-bright: #FFD700;
+            --gold-dark: #A98623;
+            --gold-light: #f4e3b1;
+            --blue-royal: #0A192F;
+            --blue-accent: #1E3A8A;
+            --bg-cream: #FDFBF7;
+            --bg-card: #FAF5EA;
+            --bg-card-hover: #F3EBD8;
+            --text-dark: #1F2937;
+            --text-muted: #5C5243;
+            --border-gold: rgba(212, 175, 55, 0.4);
+            --shadow-imperial: 0 10px 30px rgba(0, 43, 24, 0.15);
+            --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.3);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Reset & Global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4, h5, .font-heading {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--green-imperial);
+            border: 2px solid var(--gold-primary);
+            border-radius: 5px;
+        }
+
+        /* Navigation Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 42, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold-primary);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gold-bright);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .navbar-brand svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--gold-bright);
+            filter: drop-shadow(0 0 4px rgba(255,215,0,0.5));
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        .nav-links a {
+            color: #E2E8F0;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gold-bright);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-bright);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--gold-bright);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 43, 24, 0.92), rgba(10, 25, 47, 0.95)),
+                        url('https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1920&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 7rem 1.5rem 4rem;
+            color: #FFFFFF;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 15px solid transparent;
+            border-image: linear-gradient(to bottom right, var(--gold-primary), transparent, var(--gold-primary)) 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .imperial-crest {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            color: var(--gold-bright);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-weight: 900;
+            line-height: 1.15;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            color: #E2E8F0;
+            margin-bottom: 2.2rem;
+            font-style: italic;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .gold-divider {
+            height: 3px;
+            width: 180px;
+            background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+            margin: 1.5rem auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #000000;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid var(--gold-bright);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 22px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, var(--gold-bright), var(--gold-primary));
+        }
+
+        /* Common Section Layout */
+        section {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--green-imperial);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: ' Imperial ';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold-primary);
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0.8rem auto 0;
+            font-size: 1.05rem;
+        }
+
+        /* Historical Eras / Filterable Tabs */
+        .eras-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .era-btn {
+            padding: 0.8rem 1.8rem;
+            border: 2px solid var(--gold-primary);
+            background: var(--bg-card);
+            color: var(--green-imperial);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .era-btn.active, .era-btn:hover {
+            background: var(--green-imperial);
+            color: var(--gold-bright);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--gold-bright);
+        }
+
+        .era-panel {
+            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-imperial);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .era-panel.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .era-text h3 {
+            font-size: 1.8rem;
+            color: var(--green-imperial);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .era-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--green-dark);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .era-details-list {
+            margin-top: 1.2rem;
+            list-style: none;
+        }
+
+        .era-details-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .era-details-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        .era-image-box {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid var(--gold-primary);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .era-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .era-image-box:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Figures Section */
+        .figures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .figure-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-imperial);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .figure-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 42, 23, 0.25);
+            border-color: var(--gold-bright);
+        }
+
+        .figure-img-wrapper {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .figure-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: var(--transition-smooth);
+        }
+
+        .figure-card:hover .figure-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .figure-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .figure-title {
+            font-size: 1.35rem;
+            color: var(--green-imperial);
+            margin-bottom: 0.3rem;
+        }
+
+        .figure-role {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .figure-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .figure-btn {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--green-imperial);
+            padding: 0.6rem 1.2rem;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            align-self: center;
+        }
+
+        .figure-btn:hover {
+            background: var(--green-imperial);
+            color: var(--gold-bright);
+            border-color: var(--green-imperial);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gold-primary), var(--green-imperial), var(--gold-primary));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3.5rem;
+            width: 50%;
+            padding: 0 2.5rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 15px;
+            width: 22px;
+            height: 22px;
+            background: var(--gold-bright);
+            border: 4px solid var(--green-imperial);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            z-index: 5;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -11px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -11px;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-imperial);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--gold-bright);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .timeline-date {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--green-imperial);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            color: var(--gold-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-snippet {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* Imperial Symbols & Anthem Section */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .symbol-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-imperial);
+            transition: var(--transition-smooth);
+        }
+
+        .symbol-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .symbol-icon {
+            font-size: 2.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+
+        .symbol-card h3 {
+            color: var(--green-imperial);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Interactive Anthem Box */
+        .anthem-box {
+            background: linear-gradient(135deg, var(--green-dark), var(--blue-royal));
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 2.5rem;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-imperial);
+        }
+
+        .anthem-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .anthem-header h3 {
+            color: var(--gold-bright);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .anthem-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .anthem-tab-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: #FFFFFF;
+            padding: 0.6rem 1.4rem;
+            font-family: 'Cinzel', serif;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .anthem-tab-btn.active, .anthem-tab-btn:hover {
+            background: var(--gold-primary);
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .anthem-lyrics {
+            max-height: 250px;
+            overflow-y: auto;
+            text-align: center;
+            font-style: italic;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-primary);
+            line-height: 2;
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-imperial);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 1rem;
+        }
+
+        .quiz-progress {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--gold-dark);
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            color: var(--green-imperial);
+            margin-bottom: 1.8rem;
+            font-weight: 600;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            background: #FFFFFF;
+            border: 1px solid var(--border-gold);
+            padding: 1rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.98rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quiz-option:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-primary);
+        }
+
+        .quiz-option.correct {
+            background: #d4edda !important;
+            border-color: #28a745 !important;
+            color: #155724;
+            font-weight: 600;
+        }
+
+        .quiz-option.wrong {
+            background: #f8d7da !important;
+            border-color: #dc3545 !important;
+            color: #721c24;
+        }
+
+        .quiz-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        .quiz-btn {
+            background: var(--green-imperial);
+            color: var(--gold-bright);
+            border: 1px solid var(--gold-bright);
+            padding: 0.8rem 2rem;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: none;
+        }
+
+        .quiz-btn:hover {
+            background: var(--green-dark);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* Modal Window */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--bg-cream);
+            border: 2px solid var(--gold-bright);
+            border-radius: 12px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            font-size: 1.8rem;
+            color: var(--green-imperial);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .modal-header h3 {
+            color: var(--green-imperial);
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-subtitle {
+            color: var(--gold-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .modal-body {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--green-dark);
+            color: #E2E8F0;
+            border-top: 3px solid var(--gold-primary);
+            padding: 4rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-quote {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--gold-light);
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .footer-quote::before {
+            content: '“';
+            font-size: 3rem;
+            color: var(--gold-primary);
+            position: absolute;
+            left: 0;
+            top: -15px;
+        }
+
+        .footer-quote::after {
+            content: '”';
+            font-size: 3rem;
+            color: var(--gold-primary);
+            position: absolute;
+            right: 0;
+            bottom: -30px;
+        }
+
+        .footer-author {
+            margin-top: 0.8rem;
+            font-family: 'Cinzel', serif;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--gold-bright);
+            font-size: 0.95rem;
+        }
+
+        .footer-credits {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: #A0AEC0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+        }
+
+        /* Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 900px) {
+            .era-panel.active {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 15px;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 19px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: rgba(0, 42, 23, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition-smooth);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <svg viewBox="0 0 24 24">
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+            </svg>
+            <span>Império do Brasil</span>
+        </a>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#historia">Fases Históricas</a></li>
+            <li><a href="#figuras">Grandes Figuras</a></li>
+            <li><a href="#linha-tempo">Linha do Tempo</a></li>
+            <li><a href="#simbolos">Símbolos & Hino</a></li>
+            <li><a href="#quiz">Quiz Histórico</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <!-- Imperial Crown SVG Emblem -->
+            <svg class="imperial-crest" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="46" stroke="#D4AF37" stroke-width="2"/>
+                <circle cx="50" cy="50" r="42" stroke="#D4AF37" stroke-width="1" stroke-dasharray="3 3"/>
+                <path d="M30 65 L70 65 L66 40 L50 55 L34 40 Z" fill="#FFD700" stroke="#D4AF37" stroke-width="2"/>
+                <circle cx="34" cy="38" r="4" fill="#0A192F" stroke="#FFD700"/>
+                <circle cx="50" cy="32" r="5" fill="#004225" stroke="#FFD700"/>
+                <circle cx="66" cy="38" r="4" fill="#0A192F" stroke="#FFD700"/>
+                <path d="M50 32 L50 22 M45 25 L55 25" stroke="#FFD700" stroke-width="3"/>
+                <rect x="28" y="65" width="44" height="8" rx="2" fill="#D4AF37"/>
+            </svg>
+
+            <h1 class="hero-title">Império do Brasil</h1>
+            <p class="hero-subtitle">A Era Monárquica (1822–1889): Soberania, Construção da Nação e Legado Constitucional na América do Sul</p>
+            
+            <div class="gold-divider"></div>
+            
+            <a href="#historia" class="hero-btn"><i class="fas fa-crown"></i> Explorar a História</a>
+        </div>
+    </header>
+
+    <!-- Historical Eras / Phases -->
+    <section id="historia">
+        <div class="section-header">
+            <h2 class="section-title">As Fases do Império</h2>
+            <p class="section-desc">A trajetória da monarquia brasileira divide-se em três períodos fundamentais que moldaram as instituições e o território do país.</p>
+        </div>
+
+        <div class="eras-tabs">
+            <button class="era-btn active" onclick="switchEra('reinado1')">Primeiro Reinado (1822–1831)</button>
+            <button class="era-btn" onclick="switchEra('regencia')">Período Regencial (1831–1840)</button>
+            <button class="era-btn" onclick="switchEra('reinado2')">Segundo Reinado (1840–1889)</button>
+        </div>
+
+        <!-- Tab 1: Primeiro Reinado -->
+        <div id="reinado1" class="era-panel active">
+            <div class="era-text">
+                <span class="era-badge">Fundação & Consolidação</span>
+                <h3>Primeiro Reinado</h3>
+                <p>Iniciado com o <strong>Grito do Ipiranga em 1822</strong>, este período marca a emancipação política do Brasil sob a liderança de D. Pedro I. Marcado pela consolidação da independência e pela outorga da primeira Constituição nacional em 1824.</p>
+                <ul class="era-details-list">
+                    <li><strong>Constituição de 1824:</strong> Criação do Poder Moderador e organização do Estado Imperial.</li>
+                    <li><strong>Guerras de Independência:</strong> Resistência e pacificação de províncias como Bahia, Maranhão e Cisplatina.</li>
+                    <li><strong>Crise Política:</strong> Conflitos entre o Imperador e a elites liberais do parlamento, culminando na abdicação de D. Pedro I em 1831.</li>
+                </ul>
+            </div>
+            <div class="era-image-box">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop" alt="Independência do Brasil">
+            </div>
+        </div>
+
+        <!-- Tab 2: Período Regencial -->
+        <div id="regencia" class="era-panel">
+            <div class="era-text">
+                <span class="era-badge">Instabilidade & Transição</span>
+                <h3>Período Regencial</h3>
+                <p>Devido à menoridade do herdeiro D. Pedro II (com apenas 5 anos), o Brasil foi governado por regentes. Um dos momentos mais turbulentos da história nacional, marcado por intensas revoltas provinciais e debates sobre a centralização do poder.</p>
+                <ul class="era-details-list">
+                    <li><strong>Revoltas Provinciais:</strong> Farroupilha (RS), Cabanagem (PA), Sabinada (BA) e Balaiada (MA).</li>
+                    <li><strong>Ato Adicional de 1834:</strong> Maior autonomia às províncias e criação das Assembleias Legislativas.</li>
+                    <li><strong>Golpe da Maioridade (1840):</strong> Aclamação antecipada de D. Pedro II aos 14 anos para garantir a unidade territorial e a ordem.</li>
+                </ul>
+            </div>
+            <div class="era-image-box">
+                <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=800&auto=format&fit=crop" alt="Período Regencial">
+            </div>
+        </div>
+
+        <!-- Tab 3: Segundo Reinado -->
+        <div id="reinado2" class="era-panel">
+            <div class="era-text">
+                <span class="era-badge">Apogeu & Modernização</span>
+                <h3>Segundo Reinado</h3>
+                <p>O mais longo período de estabilidade política da história brasileira (49 anos) sob o governo do imperador D. Pedro II. Época de apogeu econômico com a cafeicultura, expansão das ferrovias e fim gradual da escravidão.</p>
+                <ul class="era-details-list">
+                    <li><strong>Evolução Econômica:</strong> Consolidação do Café como principal produto de exportação e surto industrial do Barão de Mauá.</li>
+                    <li><strong>Política Externa:</strong> Liderança na Guerra do Paraguai (1864–1870) e prestígio diplomático internacional.</li>
+                    <li><strong>Abolicionismo:</strong> Leis progressivas culminando na assinatura da Lei Áurea em 1888 pela Princesa Isabel.</li>
+                </ul>
+            </div>
+            <div class="era-image-box">
+                <img src="https://images.unsplash.com/photo-1569982175971-d92b01cf8694?q=80&w=800&auto=format&fit=crop" alt="Segundo Reinado">
+            </div>
+        </div>
+    </section>
+
+    <!-- Historical Figures Section -->
+    <section id="figuras">
+        <div class="section-header">
+            <h2 class="section-title">Grandes Figuras Imperiais</h2>
+            <p class="section-desc">Conheça as personalidades decisivas na liderança, cultura e transformação institucional do Império do Brasil.</p>
+        </div>
+
+        <div class="figures-grid">
+            <!-- Card 1 -->
+            <div class="figure-card">
+                <div class="figure-img-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/D._Pedro_I_do_Brasil_1826.jpg" alt="D. Pedro I" onerror="this.src='https://placehold.co/400x500/004225/FFD700?text=D.+Pedro+I'">
+                </div>
+                <div class="figure-info">
+                    <h3 class="figure-title">D. Pedro I</h3>
+                    <p class="figure-role">O Libertador (1798–1834)</p>
+                    <p class="figure-desc">Primeiro Imperador do Brasil. Proclamou a Independência em 1822 e outorgou a Constituição de 1824.</p>
+                    <button class="figure-btn" onclick="openModal('pedro1')">Saber Mais</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="figure-card">
+                <div class="figure-img-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Empress_Maria_Leopoldina_of_Brazil_c._1820.jpg" alt="Imperatriz Leopoldina" onerror="this.src='https://placehold.co/400x500/004225/FFD700?text=Leopoldina'">
+                </div>
+                <div class="figure-info">
+                    <h3 class="figure-title">Imperatriz Leopoldina</h3>
+                    <p class="figure-role">Arquiteta da Independência (1797–1826)</p>
+                    <p class="figure-desc">Arquiduquesa da Áustria e Primeira Imperatriz. Teve papel intelectual e político crucial no processo revolucionário de 1822.</p>
+                    <button class="figure-btn" onclick="openModal('leopoldina')">Saber Mais</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="figure-card">
+                <div class="figure-img-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Dom_Pedro_II_by_Pedro_Am%C3%A9rico_1875.jpg" alt="D. Pedro II" onerror="this.src='https://placehold.co/400x500/004225/FFD700?text=D.+Pedro+II'">
+                </div>
+                <div class="figure-info">
+                    <h3 class="figure-title">D. Pedro II</h3>
+                    <p class="figure-role">O Magnânimo (1825–1891)</p>
+                    <p class="figure-desc">Segundo e último Imperador. Governou por quase 50 anos, sendo patrono das ciências, artes e estabilidade nacional.</p>
+                    <button class="figure-btn" onclick="openModal('pedro2')">Saber Mais</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="figure-card">
+                <div class="figure-img-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Princess_Isabel_of_Brazil_c._1887.jpg" alt="Princesa Isabel" onerror="this.src='https://placehold.co/400x500/004225/FFD700?text=Princesa+Isabel'">
+                </div>
+                <div class="figure-info">
+                    <h3 class="figure-title">Princesa Isabel</h3>
+                    <p class="figure-role">A Redentora (1846–1921)</p>
+                    <p class="figure-desc">Regente do Império, assinou a Lei Áurea em 1888, extinguindo definitivamente a escravidão no território nacional.</p>
+                    <button class="figure-btn" onclick="openModal('isabel')">Saber Mais</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="figure-card">
+                <div class="figure-img-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Jos%C3%A9_Bonif%C3%A1cio_de_Andrada_e_Silva.jpg" alt="José Bonifácio" onerror="this.src='https://placehold.co/400x500/004225/FFD700?text=Jos%C3%A9+Bonif%C3%A1cio'">
+                </div>
+                <div class="figure-info">
+                    <h3 class="figure-title">José Bonifácio</h3>
+                    <p class="figure-role">Patriarca da Independência (1763–1838)</p>
+                    <p class="figure-desc">Naturalista, estadista e tutor de D. Pedro II. Um dos pensadores mais importantes para a soberania do país.</p>
+                    <button class="figure-btn" onclick="openModal('bonifacio')">Saber Mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="linha-tempo">
+        <div class="section-header">
+            <h2 class="section-title">Linha do Tempo Imperial</h2>
+            <p class="section-desc">Clique nos marcos históricos para explorar os eventos mais transformadores do Brasil do século XIX.</p>
+        </div>
+
+        <div class="timeline">
+            <!-- Event 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" onclick="openModal('event1822')">
+                    <div class="timeline-date">1822</div>
+                    <h3 class="timeline-title">Independência do Brasil</h3>
+                    <p class="timeline-snippet">Em 7 de setembro, D. Pedro I proclama o fim dos laços coloniais com Portugal às margens do Riacho Ipiranga.</p>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" onclick="openModal('event1824')">
+                    <div class="timeline-date">1824</div>
+                    <h3 class="timeline-title">Outorga da Carta Magna</h3>
+                    <p class="timeline-snippet">Promulgação da primeira Constituição do país, instituindo a monarquia constitucional e o Poder Moderador.</p>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" onclick="openModal('event1831')">
+                    <div class="timeline-date">1831</div>
+                    <h3 class="timeline-title">Abdicação de D. Pedro I</h3>
+                    <p class="timeline-snippet">Pressionado politicamente, o primeiro imperador abdica em favor de seu filho de 5 anos e retorna à Europa.</p>
+                </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" onclick="openModal('event1840')">
+                    <div class="timeline-date">1840</div>
+                    <h3 class="timeline-title">Golpe da Maioridade</h3>
+                    <p class="timeline-snippet">D. Pedro II é declarado maior de idade aos 14 anos, pacificando as rebeliões e iniciando seu longo governo.</p>
+                </div>
+            </div>
+
+            <!-- Event 5 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" onclick="openModal('event1888')">
+                    <div class="timeline-date">1888</div>
+                    <h3 class="timeline-title">Assinatura da Lei Áurea</h3>
+                    <p class="timeline-snippet">A Princesa Isabel assina a lei que aboliu incondicionalmente a escravidão no Império do Brasil.</p>
+                </div>
+            </div>
+
+            <!-- Event 6 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content" onclick="openModal('event1889')">
+                    <div class="timeline-date">1889</div>
+                    <h3 class="timeline-title">Proclamação da República</h3>
+                    <p class="timeline-snippet">Um golpe militar chefiado pelo Marechal Deodoro da Fonseca encerra o regime monárquico no Brasil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Imperial Symbols & Legacy -->
+    <section id="simbolos">
+        <div class="section-header">
+            <h2 class="section-title">Símbolos Imperiais & Hino</h2>
+            <p class="section-desc">A herança visual e a identidade cívica desenhadas durante a era imperial brasileira.</p>
+        </div>
+
+        <div class="symbols-grid">
+            <div class="symbol-card">
+                <div class="symbol-icon"><i class="fas fa-flag"></i></div>
+                <h3>A Bandeira Imperial</h3>
+                <p>O verde simboliza a Casa de Bragança (D. Pedro I) e o amarelo a Casa de Habsburgo (Imperatriz Leopoldina). O brasão central traz a Cruz da Ordem de Cristo e os ramos de café e tabaco.</p>
+            </div>
+
+            <div class="symbol-card">
+                <div class="symbol-icon"><i class="fas fa-crown"></i></div>
+                <h3>A Coroa Imperial</h3>
+                <p>Confeccionada em ouro maciço pelo ourives Carlos Martin em 1841 para a sagração de D. Pedro II. Ornamentada com 639 diamantes e 77 pérolas magníficas.</p>
+            </div>
+
+            <div class="symbol-card">
+                <div class="symbol-icon"><i class="fas fa-award"></i></div>
+                <h3>Ordem do Cruzeiro do Sul</h3>
+                <p>A mais alta comenda do Império, criada por D. Pedro I em 1822 para comemorar a Independência e homenagear grandes personalidades nacionais e estrangeiras.</p>
+            </div>
+        </div>
+
+        <!-- Interactive Anthem Box -->
+        <div class="anthem-box">
+            <div class="anthem-header">
+                <h3><i class="fas fa-music"></i> Hinos da Era Imperial</h3>
+                <p>Escolha para visualizar as letras dos hinos patrióticos do Brasil Império</p>
+            </div>
+
+            <div class="anthem-controls">
+                <button class="anthem-tab-btn active" onclick="switchAnthem('independencia')">Hino da Independência</button>
+                <button class="anthem-tab-btn" onclick="switchAnthem('imperial')">Hino Imperial Oficial</button>
+            </div>
+
+            <div id="anthemLyrics" class="anthem-lyrics">
+                Já podeis, da Pátria filhos,<br>
+                Ver contente a mãe gentil;<br>
+                Já raiou a liberdade<br>
+                No horizonte do Brasil.<br><br>
+                <strong>Refrão:</strong><br>
+                Brava gente brasileira!<br>
+                Longe vá... temor servil:<br>
+                Ou ficar a pátria livre<br>
+                Ou morrer pelo Brasil!
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section id="quiz">
+        <div class="section-header">
+            <h2 class="section-title">Quiz do Império</h2>
+            <p class="section-desc">Testes seus conhecimentos sobre os fatos, figuras e símbolos da Monarquia Brasileira.</p>
+        </div>
+
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <span class="quiz-progress" id="quizProgress">Pergunta 1 de 5</span>
+                <span class="quiz-progress" id="quizScore">Pontuação: 0</span>
+            </div>
+
+            <div id="quizBody">
+                <div class="quiz-question" id="quizQuestion">Carregando pergunta...</div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+            </div>
+
+            <button class="quiz-btn" id="nextBtn" onclick="nextQuestion()">Próxima Pergunta <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Modal for Detailed Information -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 id="modalTitle">Título da Figura</h3>
+                <div class="modal-subtitle" id="modalSubtitle">Subtítulo</div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                Conteúdo detalhado vai aqui...
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-quote">
+            Se eu não fosse imperador, desejaria ser professor. Não conheço missão mais nobre do que a de dirigir as inteligências jovens e preparar os homens do futuro.
+            <div class="footer-author">— D. Pedro II, Imperador do Brasil</div>
+        </div>
+
+        <div class="footer-credits">
+            <p>Império do Brasil (1822–1889) — Material de consulta educativa e preservação histórica.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Desenvolvido com padrão visual clássico e elementos interativos.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Historical Eras Tab Switcher
+        function switchEra(eraId) {
+            document.querySelectorAll('.era-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.era-panel').forEach(panel => panel.classList.remove('active'));
+
+            event.currentTarget.classList.add('active');
+            document.getElementById(eraId).classList.add('active');
+        }
+
+        // Data for Figures and Timeline Modals
+        const modalData = {
+            pedro1: {
+                title: "D. Pedro I (O Libertador)",
+                subtitle: "Primeiro Imperador do Brasil (1822 - 1831)",
+                body: `<p>Pedro de Alcântara de Bragança proclamou a independência do Brasil em 1822, tornando-se o primeiro monarca constitucional do país. Figura impulsiva e apaixonada, organizou as forças armadas para expulsar as tropas portuguesas e outorgou a Constituição de 1824.</p>
+                       <p style="margin-top:1rem;">Em 1831, diante de desgaste político com as elites locais e crise financeira agravada pela Guerra da Cisplatina, abdicou do trono brasileiro em favor do seu filho de apenas cinco anos, D. Pedro II, e retornou à Europa para defender a causa liberal em Portugal.</p>`
+            },
+            leopoldina: {
+                title: "Imperatriz Leopoldina",
+                subtitle: "Primeira Imperatriz Consorte do Brasil",
+                body: `<p>Maria Leopoldina de Habsburgo-Lorena foi uma arquiduquesa austríaca de cultura vasta, fluente em diversos idiomas e apaixonada por ciências naturais. Casou-se com D. Pedro I em 1817.</p>
+                       <p style="margin-top:1rem;">Durante as viagens do marido, atuou como Regente do Reino. Em setembro de 1822, presidiu a reunião do Conselho de Estado que decidiu pela separação definitiva de Portugal, enviando a famosa carta a D. Pedro que o motivou a declarar o Grito do Ipiranga. É reconhecida como uma das principais mentes políticas por trás da independência.</p>`
+            },
+            pedro2: {
+                title: "D. Pedro II (O Magnânimo)",
+                subtitle: "Segundo Imperador do Brasil (1840 - 1889)",
+                body: `<p>Declarado maior de idade aos 14 anos no Golpe da Maioridade (1840), Pedro II governou o Brasil por quase meio século. Sob seu reinado, o Brasil alcançou estabilidade territorial, liberdade de imprensa, consolidação do sistema parlamentarista e modernização técnica.</p>
+                       <p style="margin-top:1rem;">Entusiasta da astronomia, fotografia e línguas antigas, financiou do próprio bolso viagens de cientistas e artistas. Foi deposto pelo golpe militar de 1889, morrendo no exílio em Paris em 1891 com extrema dignidade e saudades da Pátria.</p>`
+            },
+            isabel: {
+                title: "Princesa Isabel (A Redentora)",
+                subtitle: "Herdeira Imperial e Três Vezes Regente",
+                body: `<p>D. Isabel de Bragança assumiu a regência do Império por três ocasiões durante as viagens internacionais de seu pai, D. Pedro II. Firme católica e abolicionista convicta, apoiou abertamente a causa da libertação dos escravizados.</p>
+                       <p style="margin-top:1rem;">Em 13 de Maio de 1888, assinou a emblemática <strong>Lei Áurea</strong>, extinguindo a escravatura sem indenização aos proprietários de terras, feito que lhe rendeu a Rosa de Ouro concedida pelo Papa Leão XIII e o título popular de 'A Redentora'.</p>`
+            },
+            bonifacio: {
+                title: "José Bonifácio de Andrada e Silva",
+                subtitle: "Patriarca da Independência",
+                body: `<p>Renomado mineralogista com carreira acadêmica na Europa, retornou ao Brasil no início do século XIX e tornou-se o principal conselheiro de D. Pedro I durante o processo de Independência.</p>
+                       <p style="margin-top:1rem;">Defendia ideias arrojadas para a época, como a abolição progressiva da escravidão, reforma agrária, preservação das florestas e transferência da capital para o interior do país. Mais tarde, foi nomeado tutor de D. Pedro II durante sua infância.</p>`
+            },
+            event1822: {
+                title: "O Grito do Ipiranga (1822)",
+                subtitle: "A Nascimento do Império do Brasil",
+                body: `<p>Em 7 de setembro de 1822, às margens do riacho Ipiranga em São Paulo, D. Pedro rasgou os laços que uniam o Brasil a Portugal com a famosa máxima 'Independência ou Morte!'. Em 12 de outubro foi aclamação Imperador Constitucional e coroado em 1º de dezembro.</p>`
+            },
+            event1824: {
+                title: "A Constituição Imperial de 1824",
+                subtitle: "A Mais Duradoura das Constituições Brasileiras",
+                body: `<p>Outorgada por D. Pedro I em 25 de março de 1824, estabeleceu o governo como monarquia hereditária, constitucional e representativa. Vigou até 1889 (65 anos) e introduziu o Poder Moderador, exercido exclusivamente pelo Imperador para harmonizar os outros três poderes.</p>`
+            },
+            event1831: {
+                title: "Abdicação e Início da Regência (1831)",
+                subtitle: "A Crise Política do Primeiro Reinado",
+                body: `<p>Diante do descontentamento popular e político, D. Pedro I abdicou da coroa em 7 de abril de 1831 em favor de seu filho D. Pedro II. A partida do imperador deu início ao tumultuado Período Regencial.</p>`
+            },
+            event1840: {
+                title: "O Golpe da Maioridade (1840)",
+                subtitle: "Retorno da Estabilidade Política",
+                body: `<p>Para conter as guerras civis provinciais (como a Farroupilha), liberais e conservadores anteciparam a maioridade de D. Pedro II para os 14 anos de idade. A medida unificou a nação e deu início aos 49 anos do Segundo Reinado.</p>`
+            },
+            event1888: {
+                title: "A Abolição da Escravidão (1888)",
+                subtitle: "A Assinatura da Lei Áurea",
+                body: `<p>Após décadas de pressões abolicionistas, leis graduais (Eusébio de Queirós, Ventre Livre e Sexagenários), a Princesa Isabel assinou a Lei nº 3.353 em 13 de maio de 1888, libertando definitivamente mais de 700 mil escravizados.</p>`
+            },
+            event1889: {
+                title: "A Proclamação da República (1889)",
+                subtitle: "O Fim da Monarquia",
+                body: `<p>Em 15 de novembro de 1889, uma conspiração liderada por setores do Exército e cafeicultores insatisfeitos com a abolição da escravidão sem indenização destituiu a Monarquia e estabeleceu a República Marechal Deodoro da Fonseca, banindo a Família Imperial do solo pátrio.</p>`
+            }
+        };
+
+        function openModal(key) {
+            const data = modalData[key];
+            if(!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalSubtitle').innerText = data.subtitle;
+            document.getElementById('modalBody').innerHTML = data.body;
+
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        // Close Modal on clicking overlay background
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if(e.target === document.getElementById('modalOverlay')) {
+                closeModal();
+            }
+        });
+
+        // Anthem Lyric Switcher
+        function switchAnthem(type) {
+            const btns = document.querySelectorAll('.anthem-tab-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const container = document.getElementById('anthemLyrics');
+            if(type === 'independencia') {
+                container.innerHTML = `Já podeis, da Pátria filhos,<br>
+                                       Ver contente a mãe gentil;<br>
+                                       Já raiou a liberdade<br>
+                                       No horizonte do Brasil.<br><br>
+                                       <strong>Refrão:</strong><br>
+                                       Brava gente brasileira!<br>
+                                       Longe vá... temor servil:<br>
+                                       Ou ficar a pátria livre<br>
+                                       Ou morrer pelo Brasil!`;
+            } else {
+                container.innerHTML = `Ouvirais no ipiranga as margens plácidas<br>
+                                       De um povo heróico o brado retumbante,<br>
+                                       E o sol da liberdade, em raios fúlgidos,<br>
+                                       Brilhou no céu da pátria nesse instante.<br><br>
+                                       <strong>Hino Imperial (1831–1889):</strong><br>
+                                       Eterno seja o mapa de nossas glórias,<br>
+                                       Viva D. Pedro Segundo, Nosso Rei Magnânimo!`;
+            }
+        }
+
+        // Quiz Data and Logic
+        const quizQuestions = [
+            {
+                question: "Em qual data foi proclamada a Independência do Brasil por D. Pedro I?",
+                options: ["15 de Novembro de 1889", "7 de Setembro de 1822", "13 de Maio de 1888", "25 de Março de 1824"],
+                correct: 1,
+                explanation: "D. Pedro I proclamou a Independência do Brasil em 7 de setembro de 1822, às margens do riacho Ipiranga."
+            },
+            {
+                question: "Qual importante documento assinado pela Princesa Isabel aboliu a escravidão em 1888?",
+                options: ["Constituição de 1824", "Lei Eusébio de Queirós", "Lei Áurea", "Ato Adicional"],
+                correct: 2,
+                explanation: "A Lei Áurea foi assinada em 13 de maio de 1888 pela Princesa Isabel, encerrando a escravidão no Brasil."
+            },
+            {
+                question: "Qual produto agrícola liderou a economia e a riqueza do Império no Segundo Reinado?",
+                options: ["Cana-de-açúcar", "Algodão", "Ouro", "Café"],
+                correct: 3,
+                explanation: "O café tornou-se o principal produto de exportação do Brasil durante o governo de D. Pedro II."
+            },
+            {
+                question: "Como ficou conhecido o evento em 1840 que declarou D. Pedro II apto para governar aos 14 anos?",
+                options: ["Golpe da Maioridade", "Grito do Ipiranga", "Ato Adicional", "Noite das Garrafadas"],
+                correct: 0,
+                explanation: "O Golpe da Maioridade em 1840 antecedeu a maioridade legal do imperador para pacificar as rebeliões regenciais."
+            },
+            {
+                question: "O que a cor amarela na Bandeira Imperial simbolizava originariamente?",
+                options: ["O Ouro das Minas Gerais", "A Casa de Habsburgo (Imperatriz Leopoldina)", "O Sol do Equador", "O Café do Vale do Paraíba"],
+                correct: 1,
+                explanation: "O amarelo representava a dinastia austríaca dos Habsburgo, à qual pertencia a Imperatriz D. Leopoldina."
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const q = quizQuestions[currentQ];
+            document.getElementById('quizProgress').innerText = `Pergunta ${currentQ + 1} de ${quizQuestions.length}`;
+            document.getElementById('quizQuestion').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+
+            const feedback = document.getElementById('quizFeedback');
+            feedback.className = 'quiz-feedback';
+            feedback.style.display = 'none';
+
+            document.getElementById('nextBtn').style.display = 'none';
+
+            q.options.forEach((opt, idx) => {
+                const div = document.createElement('div');
+                div.className = 'quiz-option';
+                div.innerHTML = `<span style="font-weight:700; color:var(--gold-dark);">${String.fromCharCode(65 + idx)})</span> ${opt}`;
+                div.onclick = () => checkAnswer(idx, div);
+                optionsContainer.appendChild(div);
+            });
+        }
+
+        function checkAnswer(selectedIdx, element) {
+            if(answered) return;
+            answered = true;
+
+            const q = quizQuestions[currentQ];
+            const options = document.querySelectorAll('.quiz-option');
+
+            if(selectedIdx === q.correct) {
+                element.classList.add('correct');
+                score += 20;
+                document.getElementById('quizScore').innerText = `Pontuação: ${score}`;
+                showFeedback(true, `Correto! ${q.explanation}`);
+            } else {
+                element.classList.add('wrong');
+                options[q.correct].classList.add('correct');
+                showFeedback(false, `Incorreto. ${q.explanation}`);
+            }
+
+            document.getElementById('nextBtn').style.display = 'inline-block';
+        }
+
+        function showFeedback(isCorrect, text) {
+            const fb = document.getElementById('quizFeedback');
+            fb.innerText = text;
+            fb.style.display = 'block';
+            fb.style.background = isCorrect ? '#d4edda' : '#f8d7da';
+            fb.style.color = isCorrect ? '#155724' : '#721c24';
+            fb.style.border = isCorrect ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+        }
+
+        function nextQuestion() {
+            currentQ++;
+            if(currentQ < quizQuestions.length) {
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            const body = document.getElementById('quizBody');
+            let evaluation = '';
+            if(score >= 80) evaluation = 'Sua nobreza histórica é exemplar! Você é um verdadeiro erudito do Império!';
+            else if(score >= 50) evaluation = 'Bom conhecimento! Você conhece bem os principais pilares da era imperial.';
+            else evaluation = 'Continue explorando os cartões e a linha do tempo acima para aprender ainda mais!';
+
+            body.innerHTML = `
+                <div style="text-align:center; padding: 2rem 1rem;">
+                    <i class="fas fa-trophy" style="font-size:3.5rem; color:var(--gold-bright); margin-bottom:1rem;"></i>
+                    <h3 style="font-size:1.8rem; color:var(--green-imperial); margin-bottom:0.5rem;">Quiz Concluído!</h3>
+                    <p style="font-size:1.3rem; font-family:'Cinzel', serif; font-weight:700; color:var(--gold-dark); margin-bottom:1rem;">Sua Pontuação Final: ${score} de 100 pontos</p>
+                    <p style="color:var(--text-muted); font-size:1rem; margin-bottom:2rem;">${evaluation}</p>
+                    <button class="hero-btn" onclick="resetQuiz()"><i class="fas fa-redo"></i> Refazer o Quiz</button>
+                </div>
+            `;
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        function resetQuiz() {
+            currentQ = 0;
+            score = 0;
+            document.getElementById('quizScore').innerText = `Pontuação: 0`;
+            const body = document.getElementById('quizBody');
+            body.innerHTML = `
+                <div class="quiz-question" id="quizQuestion">Carregando pergunta...</div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+            `;
+            loadQuestion();
+        }
+
+        // Initialize Quiz on window load
+        window.onload = function() {
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
