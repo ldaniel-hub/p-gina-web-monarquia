@@ -1,23 +1,53 @@
-name: Primeiro CI
+# Workflow unificado para CI e Deploy no GitHub Pages
+name: CI e Deploy Static Content
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
+  # Job do seu primeiro CI
+  Mensagem:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fazer o git clone
+        uses: actions/checkout@v4
 
-    Mensagem:
-        #criar a maquina virtual
-        runs-on: ubuntu-latest
+      - name: Executando primeiro comando
+        run: |
+          ls -l
+          echo "Fim do PROCESSO"
 
-        steps:
-          - name: Fazer o git clone
-            uses: actions/checkout@v4
+  # Job de deploy no GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-          - name: Executando primeiro comando
-            run: |
-              ls -l
-              echo "Fim do PROCESSO"
-              
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
